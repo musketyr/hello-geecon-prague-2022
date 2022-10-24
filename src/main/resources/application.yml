@@ -1,0 +1,24 @@
+micronaut:
+  application:
+    name: geeconapp
+  security:
+    intercept-url-map:
+      - pattern: /message
+        method: POST
+        access:
+          - isAuthenticated()
+netty:
+  default:
+    allocator:
+      max-order: 3
+console:
+  enabled: true
+  addresses:
+  - /127.0.0.1
+  - /0:0:0:0:0:0:0:1
+  header-name: X-Console-Verify
+  header-value: 8540d730-f45e-4008-9e10-38c78ace7eb4
+worker:
+  jobs:
+    email-digest-distributed-job-send-email:
+      fixed-rate: 1h

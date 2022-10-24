@@ -1,0 +1,5 @@
+{
+  "author": "sherlock",
+  "body": "Elementary!",
+  "created": "${json-unit.matches:isoDateNow}"
+}

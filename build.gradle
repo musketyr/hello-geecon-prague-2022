@@ -1,0 +1,53 @@
+plugins {
+    id("com.github.johnrengelman.shadow") version "7.1.2"
+    id("io.micronaut.application") version "3.6.2"
+}
+
+version = "0.1"
+group = "cz.geecon.geeconapp"
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    annotationProcessor("io.micronaut:micronaut-http-validation")
+    annotationProcessor("io.micronaut.security:micronaut-security-annotations")
+    implementation("com.agorapulse:micronaut-permissions:1.0.2-micronaut-3.0")
+    implementation("com.agorapulse:micronaut-worker:1.2.1-micronaut-3.0")
+    implementation("io.micronaut:micronaut-http-client")
+    implementation("io.micronaut:micronaut-jackson-databind")
+    implementation("io.micronaut.reactor:micronaut-reactor")
+    implementation("io.micronaut.reactor:micronaut-reactor-http-client")
+    implementation("io.micronaut.security:micronaut-security")
+    runtimeOnly("ch.qos.logback:logback-classic")
+    testImplementation("com.agorapulse:gru-micronaut:1.2.2")
+    testImplementation("org.awaitility:awaitility:4.2.0")
+    testImplementation("org.mockito:mockito-core")
+    developmentOnly("com.agorapulse:micronaut-console:2.0.1-micronaut-3.0")
+    developmentOnly("org.codehaus.groovy:groovy")
+    implementation("io.micronaut:micronaut-validation")
+
+}
+
+
+application {
+    mainClass.set("cz.geecon.geeconapp.Application")
+}
+java {
+    sourceCompatibility = JavaVersion.toVersion("1.8")
+    targetCompatibility = JavaVersion.toVersion("1.8")
+}
+
+graalvmNative.toolchainDetection = false
+micronaut {
+    runtime("netty")
+    testRuntime("junit5")
+    processing {
+        incremental(true)
+        annotations("cz.geecon.geeconapp.*")
+    }
+}
+
+
+

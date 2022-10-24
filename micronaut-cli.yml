@@ -1,0 +1,6 @@
+applicationType: default
+defaultPackage: cz.geecon.geeconapp
+testFramework: junit
+sourceLanguage: java
+buildTool: gradle
+features: [agorapulse-gru-http, agorapulse-micronaut-console, agorapulse-micronaut-permissions, agorapulse-micronaut-worker, app-name, awaitility, gradle, http-client, jackson-databind, java, java-application, junit, logback, micronaut-build, mockito, netty-server, reactor, reactor-http-client, readme, security, security-annotations, shade, yaml]
